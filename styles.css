@@ -132,6 +132,8 @@ body{
 }
 
 .quiz_box header{
+    position: relative;
+    z-index: 99;
     height: 70px;
     padding: 0 30px;
     background: #fff;
@@ -140,6 +142,7 @@ body{
     justify-content: space-between;
     border-radius: 5px 5px 0 0;
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0 0.1);
+    border-bottom: 1px solid lightgrey;
 }
 
 .quiz_box header .title{
@@ -159,9 +162,9 @@ body{
     padding: 0 8px;
 }
 
-.quiz_box header .timer .timetext {
+.quiz_box header .timer .time_text {
     font-weight: 400;
-    font-size: 175px;
+    font-size: 17px;
     user-select: none;
 }
 
@@ -177,6 +180,15 @@ body{
     border-radius: 5px;
     border: 1px solid #343a40;
     user-select: none;
+}
+
+.quiz_box header .time_line{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 3px;
+    /* width: 50%; */
+    background: #007bff;
 }
 
 .quiz_box section{
@@ -205,16 +217,19 @@ body{
 section .option_list .option{
     background: aliceblue;
     border: 1px solid #84c5fe;
+ 
     border-radius: 5px;
     padding: 8px 15px;
     margin-bottom: 15px;
+    font-size: 17px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.option_list .option .icon{
+section .option_list .option:hover{
     color: #004085;
     background: #cce5ff;
     border-color: #b8daff;
@@ -247,6 +262,22 @@ section .option_list .option{
     border-color: #a42834;
 }
 
+.option_list .option.correct{
+    color: #155724;
+    background: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.option_list .option.incorrect{
+    color: #721c24;
+    background: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.option_list .option.disabled{
+    pointer-events: none;
+}
+
 .quiz_box footer{
     height: 60px;
     width: 100%;
@@ -271,6 +302,7 @@ footer .total_que span p{
 }
 
 footer .next_btn{
+    display: none;
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -298,8 +330,6 @@ footer .next_btn:hover{
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-  
-    
 }
 
 .result_box .icon{
