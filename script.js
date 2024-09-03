@@ -94,7 +94,7 @@ function optionSelected(answer){
         for (let i = 0; i < allOptions; i++){
             if(option_list.children[i].textContent == correctAns){
                 option_list.children[i].setAttribute("class", "option correct");
-                answer.insertAdjacentHTML("beforeend", tickIcon)
+                option_list.children[i].insertAdjacentHTML("beforeend", tickIcon)
              }
         }
     }
