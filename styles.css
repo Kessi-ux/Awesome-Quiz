@@ -26,7 +26,8 @@ body{
 }
 
 .info_box.activeInfo,
-.quiz_box.activeQuiz{
+.quiz_box.activeQuiz,
+.result_box.activeResult{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -217,7 +218,6 @@ body{
 section .option_list .option{
     background: aliceblue;
     border: 1px solid #84c5fe;
- 
     border-radius: 5px;
     padding: 8px 15px;
     margin-bottom: 15px;
@@ -321,15 +321,17 @@ footer .next_btn:hover{
 }
 
 .result_box{
+    opacity: 0;
     background: #fff;
     width: 450px;
     padding: 25px 30px;
     border-radius: 5px;
-    display: none;
+    /* display: none; */
     text-align: center;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    pointer-events: none;
 }
 
 .result_box .icon{
